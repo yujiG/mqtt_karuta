@@ -27,6 +27,9 @@ gem 'rack-cors'
 
 gem 'config' # setting.yml files
 
+# Use active-record-import for bulk insert and update
+gem 'activerecord-import'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
