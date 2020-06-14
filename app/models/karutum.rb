@@ -1,2 +1,0 @@
-class Karutum < ApplicationRecord
-end
