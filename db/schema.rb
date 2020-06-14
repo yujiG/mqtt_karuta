@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_080147) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "key", null: false
-    t.datetime "start_at", null: false
+    t.datetime "start_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
