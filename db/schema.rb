@@ -14,9 +14,11 @@ ActiveRecord::Schema.define(version: 2020_06_14_082603) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "key", null: false
+    t.bigint "karuta_id"
     t.datetime "start_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["karuta_id"], name: "index_games_on_karuta_id"
   end
 
   create_table "karuta", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
