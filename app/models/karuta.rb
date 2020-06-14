@@ -3,12 +3,11 @@ class Karuta < ApplicationRecord
 
   class << self
     def seed
+      now = Time.current
       karutas = NAMES.map.with_index(1) do |name, i|
-        karuta = Karuta.find_or_initialize_by(id: i)
-        karuta.name = name
-        karuta
+        { id: i, name: name, created_at: now, updated_at: now }
       end
-      Karuta.import(karutas)
+      Karuta.upsert_all(karutas)
     end
   end
 end
