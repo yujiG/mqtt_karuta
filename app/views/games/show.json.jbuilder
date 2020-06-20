@@ -3,7 +3,13 @@ json.game do
   json.start_at @game.start_at
   json.karuta_id @game.karuta_id
 end
-json.karuras do
+json.points do
+  json.array! @points do |point|
+    json.user_id point.user_id
+    json.karuta_id point.karuta_id
+  end
+end
+json.karutas do
   json.array! @karutas do |karuta|
     json.id karuta.id
     json.name karuta.name
@@ -13,10 +19,5 @@ json.users do
   json.array! @users do |user|
     json.id user.id
     json.is_me user.key == params[:user_key]
-    json.points do
-      json.array! user.points do |point|
-        json.karuta_id point.karuta_id
-      end
-    end
   end
 end

@@ -7,8 +7,9 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by(key: params[:game_key])
     raise 'record_not_found' if @game.blank?
-    @karuta = Karuta.all
-    @users = @game.users.includes(:points)
+    @karutas = Karuta.all
+    @users = @game.users
+    @points = @game.points.firstest
     render formats: :json
   end
 end
