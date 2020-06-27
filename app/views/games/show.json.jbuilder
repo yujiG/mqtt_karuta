@@ -1,7 +1,7 @@
 json.game do
   json.id @game.id
   json.start_at @game.start_at
-  json.karuta_id @game.karuta_id
+  json.karuta_id @game.karuta&.id
 end
 json.points do
   json.array! @points do |point|
