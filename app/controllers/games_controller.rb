@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def create
-    game = Game.create!(key: SecureRandom.hex(10))
+    game = Game.create!(key: SecureRandom.hex(10), start_at: Game::INTERVAL.since)
+    UpdateKarutaJob.set(wait: Game::INTERVAL).perform_later(game)
     render :json => { key: game.key }, status: :created
   end
 
