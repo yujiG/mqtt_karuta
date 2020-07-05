@@ -7,7 +7,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by(key: params[:game_key])
-    raise ActiveRecord::RecordNotFound if @game.blank?
+    @user_key = params[:user_key]
+    raise ActiveRecord::RecordNotFound if @game.blank? || !@game.users.exists?(key: @user_key)
     @karutas = Karuta.all
     @users = @game.users
     @points = @game.points.firstest

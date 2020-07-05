@@ -19,4 +19,8 @@ class Game < ApplicationRecord
   def last_karuta?
     karuta_index == LAST_KARUTA_INDEX
   end
+  
+  def finished?
+    last_karuta? && points.exists?(karuta: karuta)
+  end
 end

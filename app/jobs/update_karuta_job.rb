@@ -6,7 +6,9 @@ class UpdateKarutaJob < ApplicationJob
 
   def perform(game)
     next_karuta = game.update_next_karuta
-    client.publish("karuta/#{game.key}/new_target_karuta", { karutaId: next_karuta.id }.to_json, MQTT_RETAIN, QOS_LEVEL)
+    path = "karuta/#{game.key}/new_target_karuta"
+    params = { karutaId: next_karuta.id, is_last: game.last_karuta? }.to_json
+    client.publish(path, params, MQTT_RETAIN, QOS_LEVEL)
     # client.disconnect # comment out if necessary
     return if game.last_karuta?
     UpdateKarutaJob.set(wait: Game::INTERVAL).perform_later(game)
