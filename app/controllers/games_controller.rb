@@ -13,7 +13,7 @@ class GamesController < ApplicationController
     raise ActiveRecord::RecordNotFound if @game.blank? || !@game.users.exists?(key: @user_key)
     @karutas = Karuta.all
     @users = @game.users
-    @points = @game.points.firstest
+    @points = @game.points.firstest(@users.pluck(:id))
     render formats: :json
   end
 
