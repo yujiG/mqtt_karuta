@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  INTERVAL = 1.minute
+  INTERVAL = 2.seconds
   LAST_KARUTA_INDEX = (Karuta.all.size - 1)
 
   has_many :users, dependent: :destroy
@@ -13,7 +13,7 @@ class Game < ApplicationRecord
 
   def karuta
     return if karuta_index.blank?
-    Karuta.all[karuta_index]
+    Karuta.all.shuffle(random: Random.new(id))[karuta_index]
   end
 
   def last_karuta?
