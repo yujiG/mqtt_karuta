@@ -10,6 +10,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
   allow do
     origins '*'
-    resource '*', headers: :any, methods: methods, credentials: true
+    resource '*', headers: :any, methods: methods, credentials: false
   end
 end
