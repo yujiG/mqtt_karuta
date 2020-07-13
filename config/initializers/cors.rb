@@ -9,11 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   methods = %i[get post]
 
   allow do
-    if Rails.env.production?
-      origins 'example.com' # TODO: あとで変更する
-    else
-      origins Regexp.new('localhost:8080')
-    end
+    origins '*'
     resource '*', headers: :any, methods: methods, credentials: true
   end
 end
