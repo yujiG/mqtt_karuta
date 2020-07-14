@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  INTERVAL = 2.seconds
+  INTERVAL = 1.seconds
   LAST_KARUTA_INDEX = (Karuta.all.size - 1)
 
   has_many :users, dependent: :destroy
