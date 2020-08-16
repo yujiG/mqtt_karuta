@@ -31,3 +31,6 @@ bundle exec rails db:seed
 ```
 bundle exec rails s -p 3001
 ```
+
+4. vueの準備
+https://github.com/yujiG/mqtt_karuta_web
