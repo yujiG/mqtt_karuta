@@ -1,24 +1,33 @@
-# README
+# localhost手順
+1. mosquittoサーバーの準備（同じサーバーじゃないと動かないです）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+修正
+```
+vim /usr/local/etc/mosquitto/mosquitto.conf
 
-Things you may want to cover:
+# my conf
+listener 1883
+listener 1884
+rotocol websockets
+```
 
-* Ruby version
+起動
 
-* System dependencies
+```
+# 起動
+mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf
+```
 
-* Configuration
+2. rails の初期準備
+```
+bundle install --path vendor/bundle
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed
+```
 
-* Database creation
+3. 起動
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle exec rails s -p 3001
+```
