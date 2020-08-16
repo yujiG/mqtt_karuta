@@ -1,5 +1,6 @@
 # localhost手順
-1. mosquittoサーバーの準備（同じサーバーじゃないと動かないです）
+1. mosquittoサーバーの準備
+mosquittoをインストール
 
 修正
 ```
