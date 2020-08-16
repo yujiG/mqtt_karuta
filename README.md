@@ -1,3 +1,5 @@
+`rails/vue`で、mqtt(mosquitto)を使って、いい感じに同期しながら遊べるゲーム
+
 # localhost手順
 1. mosquittoサーバーの準備
 mosquittoをインストール
