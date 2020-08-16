@@ -1,5 +1,6 @@
 # localhost手順
-1. mosquittoサーバーの準備（同じサーバーじゃないと動かないです）
+1. mosquittoサーバーの準備
+mosquittoをインストール
 
 修正
 ```
@@ -31,3 +32,6 @@ bundle exec rails db:seed
 ```
 bundle exec rails s -p 3001
 ```
+
+4. vueの準備
+https://github.com/yujiG/mqtt_karuta_web
