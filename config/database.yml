@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: mqtt_karuta_production
-  username: mqtt_karuta
+  username: <%= ENV['MQTT_KARUTA_DATABASE_USER'] %>
   password: <%= ENV['MQTT_KARUTA_DATABASE_PASSWORD'] %>
