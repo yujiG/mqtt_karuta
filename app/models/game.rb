@@ -21,6 +21,6 @@ class Game < ApplicationRecord
   end
   
   def finished?
-    last_karuta? && points.exists?(karuta: karuta)
+    last_karuta? && !points.exists?(karuta: karuta)
   end
 end
